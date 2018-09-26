@@ -48,6 +48,15 @@ services:
       serve all --dangerous-force-http
     environment:
 #      - LOG_LEVEL=debug
+      - BACKEND_CORS_ENABLED=true
+      - FRONTEND_CORS_ENABLED=true
+      - CORS_ALLOWED_ORIGINS=*
+      - CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,PATCH,OPTIONS
+      - CORS_ALLOWED_CREDENTIALS=true
+      - CORS_DEBUG=true
+      - CORS_MAX_AGE=0 # no max age
+      - CORS_ALLOWED_HEADERS=Authorization,Accept,Accept-Language,Content-Language,Content-Type
+      - CORS_EXPOSED_HEADERS=Authorization,Accept,Accept-Language,Content-Language,Content-Type
       - OAUTH2_ISSUER_URL=http://localhost:4444
       - OAUTH2_CONSENT_URL=http://localhost:3000/consent
       - OAUTH2_LOGIN_URL=http://localhost:3000/login
